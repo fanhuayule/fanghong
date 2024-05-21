@@ -8,6 +8,7 @@
         body, html {
             height: 100%;
             margin: 0;
+            overflow: hidden; /* 防止页面出现滚动条 */
         }
         .bg-image {
             background-image: url('https://www.hanliyanjiu.xyz/wp-content/uploads/2024/05/1716289663-ab68e1f3d3ad5e3.jpg'); /* 将 'your-image-url.jpg' 替换为您的图片URL */
@@ -26,24 +27,16 @@
             left: 50%;
             transform: translate(-50%, 0);
             color: white;
-            background-color: rgba(0, 0, 0, 0.7); /* 调整透明度 */
+            background-color: rgba(0, 0, 0, 1); /* 不透明的黑色背景 */
             padding: 20px;
             border-radius: 10px;
-        }
-        @media (max-width: 768px) {
-            #tips {
-                font-size: 20px;
-                top: 5%; /* 调整小屏幕上的位置 */
-                line-height: 40px;
-                padding: 15px;
-            }
+            z-index: 1; /* 确保提示信息在背景图层上方 */
         }
     </style>
 </head>
 <body>
-    <div class="bg-image">
-        <div id="tips"></div>
-    </div>
+    <div class="bg-image"></div>
+    <div id="tips">请点击右上角，通过浏览器打开本页面。</div>
     <script>
         var url = document.location.toString();
         var urlParmStr = url.slice(url.indexOf('=') + 1);
