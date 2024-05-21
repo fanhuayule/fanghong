@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-    <title>中转</title>
+    <title>api中转</title>
     <style>
         body, html {
             height: 100%;
@@ -31,6 +31,15 @@
             padding: 20px;
             border-radius: 10px;
             z-index: 1; /* 确保提示信息在背景图层上方 */
+        }
+
+        /* 在小屏幕设备上调整字体大小 */
+        @media (max-width: 768px) {
+            #tips {
+                font-size: 20px;
+                line-height: 40px;
+                padding: 15px;
+            }
         }
     </style>
 </head>
