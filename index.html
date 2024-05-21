@@ -5,28 +5,38 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
     <title>中转</title>
     <style>
-        body {
+        body, html {
+            height: 100%;
             margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
+        .bg-image {
+            background-image: url('https://www.hanliyanjiu.xyz/wp-content/uploads/2024/05/1716289666-188f2b78b93c895.jpg'); /* 将 'your-image-url.jpg' 替换为您的图片URL */
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         #tips {
             font-size: 25px;
-            margin-top: 50px; /* 设置顶部间距 */
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景提高可读性 */
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div id="tips"></div>
-    </div>
+    <div class="bg-image"></div>
+    <div id="tips"></div>
     <script>
         var url = document.location.toString();
-        var urlParmStr = url.slice(url.indexOf('=')+1);
+        var urlParmStr = url.slice(url.indexOf('=') + 1);
         var ua = navigator.userAgent.toLowerCase();
         var isQQ = ua.indexOf('qq') != -1;
         var isWeixin = ua.indexOf('micromessenger') != -1;
@@ -38,20 +48,17 @@
         // 判断是不是在微信客户端打开
         if (isWeixin || isQQ) {
             // 判断是在Android的微信客户端还是Ios的微信客户端
-            if (isAndroid || isIos) {
-                document.getElementById("tips").innerHTML = notice_openBrowser;
-            }
+            document.getElementById("tips").innerHTML = notice_openBrowser;
         } else {
             // 不是微信客户端，直接可以访问链接
-            if (urlParmStr == url){
-                urlParmStr = "https://www.fanhuayule.cc";
+            if (urlParmStr != url) {
+                console.log(urlParmStr);
+                location.href = urlParmStr;
             }
-            console.log(urlParmStr);
-            location.href = urlParmStr;
         }
     </script>
     <script async type="text/javascript" src="https://js.users.51.la/21480329.js"></script>
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-	<script>LA.init({id: "JsTawo0DkJhtEmv4",ck: "JsTawo0DkJhtEmv4"})</script>
+    <script>LA.init({id: "JsTawo0DkJhtEmv4", ck: "JsTawo0DkJhtEmv4"})</script>
 </body>
 </html>
